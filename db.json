@@ -11,7 +11,7 @@
       "id": 2
     },
     {
-      "nombre": "Juan",
+      "nombre": "Adam Sandler",
       "email": "holacinema@hotmail.com",
       "id": "ccaab1dc-8c1e-4b15-bc4a-1425ea8518e0"
     },
@@ -19,6 +19,11 @@
       "nombre": "Juan Varela",
       "email": "juan@varela.com",
       "id": "bf364d28-35fb-4943-b1a5-74664151c9a9"
+    },
+    {
+      "nombre": "Jesus Futuro",
+      "email": "jesus@robot.com",
+      "id": "7147a001-3fbf-49bd-b3d4-c4cc1042d528"
     }
   ]
 }

@@ -28,7 +28,8 @@ const crearNuevaLinea = (nombre, email, id) => {
   const btn = linea.querySelector("button");
   btn.addEventListener("click", () => {
     const id = btn.id;
-    clientServices.eliminarCliente(id).then(respuesta => {
+    clientServices.eliminarCliente(id)
+    .then(respuesta => {
       console.log(respuesta);
     }).catch(err => console.log(err));
   });
