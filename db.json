@@ -16,24 +16,9 @@
       "id": "ccaab1dc-8c1e-4b15-bc4a-1425ea8518e0"
     },
     {
-      "nombre": "Juan",
-      "email": "holacinema@hotmail.com",
-      "id": "825639af-bb5a-4247-ae15-1018d30d8d1a"
-    },
-    {
-      "nombre": "Juan",
-      "email": "holacinema@hotmail.com",
-      "id": "cb39d996-18dd-4fcf-b310-b64daa34cc44"
-    },
-    {
-      "nombre": "Juan",
-      "email": "holacinema@hotmail.com",
-      "id": "cff60fac-061a-451f-a762-aaffb24cd3e2"
-    },
-    {
-      "nombre": "Juan",
-      "email": "holacinema@hotmail.com",
-      "id": "42c24801-3fc2-4e85-a4b4-fb44c25344f2"
+      "nombre": "Juan Varela",
+      "email": "juan@varela.com",
+      "id": "bf364d28-35fb-4943-b1a5-74664151c9a9"
     }
   ]
 }
