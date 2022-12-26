@@ -1,62 +1,22 @@
-const crearNuevaLinea = (nombre, email) =>{
-    const linea = document.createElement("tr")
-    const contenido = 
-    `<td class="td" data-td>${nombre}</td>
-    <td>${email}</td>
-    <td>
-      <ul class="table__button-control">
-        <li>
-          <a
-            href="../screens/editar_cliente.html"
-            class="simple-button simple-button--edit"
-            >Editar</a
-          >
-        </li>
-        <li>
-          <button
-            class="simple-button simple-button--delete"
-            type="button"
-          >
-            Eliminar
-          </button>
-        </li>
-      </ul>
-    </td>`;
-    linea.innerHTML = contenido;
-    return linea;
-};
+/*Primero abre una conexion a la url, genera una promesa, una vez completa se recibe
+y se convierte en json. Con esto se obtiene acceso a data*/ 
+const listaClientes = () => fetch("http://localhost:3000/perfil").then(respuesta => respuesta.json());
 
-const table = document.querySelector("[data-table]");
-
-
-
-const listaClientes = () =>{
-    const promise = new Promise((resolve, reject) => {
-        const http = new XMLHttpRequest();
-
-        http.open("GET", "http://localhost:3000/perfil");
-        
-        http.send();
-
-        http.onload = () => {
-            const response = JSON.parse(http.response);
-            if(http>=400){
-                reject(response);
-            }else{
-                resolve(response);
-            }
-        };
-    });
-    
-    return promise;
-};
-
-listaClientes().then((data) => {
-  data.forEach(perfil => {
-    const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
-    table.appendChild(nuevaLinea);
+const crearCliente = (nombre, email) =>{
+  return fetch("http://localhost:3000/perfil", {
+    //Por defecto fetch usa GET. Para usar otro lo definimos en method
+    method: "POST",
+    //Sirve para que el servidor sepa que tipo de archivo va a recibir
+    headers: {
+      "content-type": "application/json"
+    },
+    /*Ponemos toda la informacion que queremos que se envíe a traves del cuerpo de la petición
+    Se convierte a string ya que es lo que lee el json*/
+    body: JSON.stringify({nombre, email, id:uuid.v4()}),
   });
-}).catch((error) => {
-  alert("Ocurrió un error"); 
-  console.log(error);
-});
+};
+
+export const clientServices = {
+  listaClientes,
+  crearCliente
+};
