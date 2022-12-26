@@ -24,6 +24,16 @@
       "nombre": "Jesus Futuro",
       "email": "jesus@robot.com",
       "id": "7147a001-3fbf-49bd-b3d4-c4cc1042d528"
+    },
+    {
+      "nombre": "Diego Rey",
+      "email": "dieguyrey@hotmail.com",
+      "id": "23b7b954-6779-433e-80fc-1ae62d279eba"
+    },
+    {
+      "nombre": "nombre",
+      "email": "mbderey@gmail.com",
+      "id": "66a361a1-87e6-463f-ad19-f6988acfa462"
     }
   ]
 }
