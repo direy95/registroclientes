@@ -36,8 +36,16 @@ formulario.addEventListener("submit", async (event) => {
 
     const nombre = document.querySelector("[data-nombre]").value;
     const email = document.querySelector("[data-email]").value;
-    console.log(nombre, " - ", email);
 
-    await clientServices.actualizarCliente(nombre, email, id)
-        window.location.href = "/screens/edicion_concluida.html";
+    try{
+        await clientServices.actualizarCliente(nombre, email, id);
+        if(nombre && email && id)
+            window.location.href = "/screens/edicion_concluida.html";
+        else
+            throw new Error();
+    }catch(err){
+        alert("Se encontró un error");
+        console.log("Catch error: ", err);
+        window.location.href = "/screens/error.html";
+    }
 })
