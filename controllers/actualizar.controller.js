@@ -11,14 +11,24 @@ const obtenerInfo = async () => {
         window.location.href = "/screens/error.html"
     }
 
-    const perfil = await clientServices.detalleCliente(id) 
-        nombre.value = perfil.nombre;
-        email.value = perfil.email;
+    try {
+        const perfil = await clientServices.detalleCliente(id);
+        if(perfil.nombre && perfil.email){
+            nombre.value = perfil.nombre;
+            email.value = perfil.email; 
+        }else{
+            throw new Error();
+        }     
+    }catch(err){
+        alert("Se encontró un error");
+        console.log("Catch error: ", err);
+        window.location.href = "/screens/error.html";
+    }
 }
 
 obtenerInfo();
 
-formulario.addEventListener("submit", (event) => {
+formulario.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const url = new URL(window.location);
@@ -27,7 +37,7 @@ formulario.addEventListener("submit", (event) => {
     const nombre = document.querySelector("[data-nombre]").value;
     const email = document.querySelector("[data-email]").value;
     console.log(nombre, " - ", email);
-    clientServices.actualizarCliente(nombre, email, id).then(() =>{
+
+    await clientServices.actualizarCliente(nombre, email, id)
         window.location.href = "/screens/edicion_concluida.html";
-    })
 })
