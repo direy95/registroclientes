@@ -2,7 +2,7 @@ import { clientServices } from "../service/client-service.js";
 
 const formulario = document.querySelector("[data-form]");
 
-const obtenerInfo = () => {
+const obtenerInfo = async () => {
     //URL nos consigue la url de la screen actual en modo objeto
     const url = new URL(window.location);
     // search params busca todo en url que tenga id
@@ -11,10 +11,9 @@ const obtenerInfo = () => {
         window.location.href = "/screens/error.html"
     }
 
-    clientServices.detalleCliente(id).then(perfil => {
+    const perfil = await clientServices.detalleCliente(id) 
         nombre.value = perfil.nombre;
         email.value = perfil.email;
-    });
 }
 
 obtenerInfo();
